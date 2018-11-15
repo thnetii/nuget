@@ -1,6 +1,6 @@
 name: $(Date:yyyy-MM-dd)-rev-$(Rev:r)
 variables:
-  ArtifactPrefix: thnetii-dotnet-common
+  ArtifactPrefix: thnetii-nuget
 jobs:
 - template: dotnetcore.job.yml
   parameters:
