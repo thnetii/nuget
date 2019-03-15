@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
-    <PackageReference Include="NuGet.Common" Version="4.6.3" />
+    <PackageReference Include="NuGet.Common" Version="4.6.4" />
   </ItemGroup>
   
 </Project>
