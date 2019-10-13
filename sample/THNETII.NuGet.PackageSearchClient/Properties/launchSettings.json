@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "THNETII.NuGet.PackageSearchClient": {
+      "commandName": "Project",
+      "commandLineArgs": "Newtonsoft.Json"
+    }
+  }
+}
