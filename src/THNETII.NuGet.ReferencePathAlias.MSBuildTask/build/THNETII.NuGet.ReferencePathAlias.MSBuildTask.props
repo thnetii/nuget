@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
+
+  <PropertyGroup>
+    <TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard1.6</TaskFolder>
+    <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net46</TaskFolder>
+    <TaskAssembly>$(MSBuildThisFileDirectory)..\tasks\$(TaskFolder)\$(MSBuildThisFileName).dll</TaskAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="THNETII.NuGet.ReferencePathAlias.MSBuildTask.UpdatePackageReferencePathAliases" AssemblyFile="$(TaskAssembly)"/>
+  
+</Project>

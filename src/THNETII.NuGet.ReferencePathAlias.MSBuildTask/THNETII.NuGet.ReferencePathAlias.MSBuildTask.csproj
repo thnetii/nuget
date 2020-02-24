@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+  
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <!-- Change the default location where NuGet will put the build output -->
+    <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- pack the props files -->
+    <Content Include="build\$(MSBuildProjectName).props" PackagePath="build\" />
+    <Content Include="build\$(MSBuildProjectName).targets" PackagePath="build\" />
+    <Content Include="buildMultiTargeting\$(MSBuildProjectName).props" PackagePath="buildMultiTargeting\" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="15.1.1012" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.1.1012" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- marks all packages as 'local only' so they don't end up in the nuspec -->
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+  
 </Project>
