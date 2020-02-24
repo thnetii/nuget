@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <Target Name="UpdatePackageReferencePathAliases" AfterTargets="ResolveReferences">
+
+    <UpdatePackageReferencePathAliases PackageReference="@(PackageReference)"
+                                       ReferencePath="@(ReferencePath)">
+      <Output TaskParameter="ReferencePath" ItemName="_ReferencePathUpdated" />
+    </UpdatePackageReferencePathAliases>
+
+    <ItemGroup>
+      <ReferencePath Remove="@(_ReferencePathUpdated)"/>
+    </ItemGroup>
+
+    <CreateItem Include="@(_ReferencePathUpdated)" PreserveExistingMetadata="true">
+      <Output TaskParameter="Include" ItemName="ReferencePath" />
+    </CreateItem>
+
+  </Target>
+  
+</Project>

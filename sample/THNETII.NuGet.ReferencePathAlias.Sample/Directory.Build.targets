@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Import Condition="
+    Exists('$([MSBuild]::GetDirectoryNameOfFileAbove(&quot;$(MSBuildThisFileDirectory)..&quot;, &quot;Directory.Build.targets&quot;))\Directory.Build.targets')
+    "
+    Project="$([MSBuild]::GetDirectoryNameOfFileAbove('$(MSBuildThisFileDirectory)..', 'Directory.Build.targets'))\Directory.Build.targets" />
+
+  <Import Project="$(MSBuildThisFileDirectory)THNETII.NuGet.ReferencePathAlias.MSBuildTask.targets" />
+
+</Project>

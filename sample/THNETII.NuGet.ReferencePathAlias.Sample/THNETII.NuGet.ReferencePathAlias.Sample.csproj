@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net48'">
+    <Reference Include="System.Xml">
+      <Aliases>NetFrameworkSystemXml</Aliases>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="THNETII.NuGet.ReferencePathAlias.MSBuildTask.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="THNETII.NuGet.ReferencePathAlias.MSBuildTask.targets">
+      <PackagePath>build\</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.100.1">
+      <PrivateAssets>All</PrivateAssets>
+      <ReferencePathAlias>AWSSDK_Extensions_NETCore_Setup</ReferencePathAlias>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\THNETII.NuGet.ReferencePathAlias.MSBuildTask\THNETII.NuGet.ReferencePathAlias.MSBuildTask.csproj">
+      <PrivateAssets>All</PrivateAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
