@@ -24,3 +24,7 @@ jobs:
       displayName:  Use .NET Core SDK version 3.x
       inputs:
         version:    3.x
+    independantRuntime:
+      pool:
+        vmImage: windows-latest
+      arguments:    '-p:NoNetFramework=false'
