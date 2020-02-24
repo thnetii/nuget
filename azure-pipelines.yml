@@ -24,6 +24,11 @@ jobs:
       displayName:  Use .NET Core SDK version 3.x
       inputs:
         version:    3.x
+    common:
+      allProjects: |
+        [Ss]rc/*/*.csproj
+        [Tt]est/*/*.csproj
+        [Ss]ample/*/*.csproj
     independantRuntime:
       pool:
         vmImage: windows-latest
