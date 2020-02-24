@@ -2,9 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
     <TargetFrameworks Condition="'$(NoNetFramework)'!='true'">$(TargetFrameworks);net46</TargetFrameworks>
-    <TargetFramework Condition="'$(BuildDefaultTargetFramework)'!=''">netstandard1.6</TargetFramework>
     <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <!-- Change the default location where NuGet will put the build output -->
@@ -18,9 +17,17 @@
     <Content Include="buildMultiTargeting\$(MSBuildProjectName).props" PackagePath="buildMultiTargeting\" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.3' or '$(TargetFramework)'=='net46'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[15.0,15.7)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.0,15.7)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[15.7,16.4.0]" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.7,16.4.0]" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="Microsoft.Build.Framework" Version="15.1.1012" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.1.1012" />
     <PackageReference Remove="Microsoft.SourceLink.GitHub" />
   </ItemGroup>
 

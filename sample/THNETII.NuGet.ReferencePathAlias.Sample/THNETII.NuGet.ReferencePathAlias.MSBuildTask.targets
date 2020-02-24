@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
 
-  <PropertyGroup>
-    <TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard1.6</TaskFolder>
+  <PropertyGroup Condition="'$(MSBuildVersion)' &lt; '15.7'">
+    <TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard1.3</TaskFolder>
     <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net46</TaskFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildVersion)' &gt;= '15.7'">
+    <TaskFolder>netstandard2.0</TaskFolder>
+  </PropertyGroup>
+  <PropertyGroup>
     <TaskAssembly Condition="'$(RuntimeIdentifier)'==''">$(OutputPath)..\$(TaskFolder)\$(MSBuildThisFileName).dll</TaskAssembly>
     <TaskAssembly Condition="'$(RuntimeIdentifier)'!=''">$(OutputPath)..\..\$(TaskFolder)\$(MSBuildThisFileName).dll</TaskAssembly>
   </PropertyGroup>
@@ -24,7 +29,7 @@
     <CreateItem Include="@(_ReferencePathUpdated)" PreserveExistingMetadata="true">
       <Output TaskParameter="Include" ItemName="ReferencePath" />
     </CreateItem>
-    
+
   </Target>
-  
+
 </Project>
