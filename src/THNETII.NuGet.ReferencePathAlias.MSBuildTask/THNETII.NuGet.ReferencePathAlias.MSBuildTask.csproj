@@ -3,6 +3,7 @@
   
   <PropertyGroup>
     <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <TargetFramework Condition="'$(BuildDefaultTargetFramework)'!=''">netstandard1.6</TargetFramework>
     <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <!-- Change the default location where NuGet will put the build output -->
