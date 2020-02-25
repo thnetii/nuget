@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project TreatAsLocalProperty="TaskFolder;TaskAssembly">
 
-  <PropertyGroup Condition="'$(MSBuildVersion)' &lt; '15.7'">
-    <TaskFolder Condition=" '$(MSBuildRuntimeType)' == 'Core' ">netstandard1.3</TaskFolder>
-    <TaskFolder Condition=" '$(MSBuildRuntimeType)' != 'Core' ">net46</TaskFolder>
+  <PropertyGroup Condition=" '' != 'Core' ">
+    <TaskFolder                                               >net45</TaskFolder>
+    <TaskFolder Condition=" '$(MSBuildVersion)' &gt;= '15.0' ">net46</TaskFolder>
+    <TaskFolder Condition=" '$(MSBuildVersion)' &gt;= '16.0' ">net472</TaskFolder>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(MSBuildVersion)' &gt;= '15.7'">
-    <TaskFolder>netstandard2.0</TaskFolder>
+  <PropertyGroup Condition=" '' == 'Core' ">
+    <TaskFolder                                               >netstandard1.3</TaskFolder>
+    <TaskFolder Condition=" '$(MSBuildVersion)' &gt;= '15.7' ">netstandard2.0</TaskFolder>
   </PropertyGroup>
   <PropertyGroup>
     <TaskAssembly Condition="'$(RuntimeIdentifier)'==''">$(OutputPath)..\$(TaskFolder)\$(MSBuildThisFileName).dll</TaskAssembly>

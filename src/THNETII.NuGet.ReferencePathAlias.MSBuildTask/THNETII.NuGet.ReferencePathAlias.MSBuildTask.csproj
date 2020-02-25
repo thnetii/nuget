@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
-    <TargetFrameworks Condition="'$(NoNetFramework)'!='true'">$(TargetFrameworks);net46</TargetFrameworks>
+    <TargetFrameworks Condition="'$(NoNetFramework)'!='true'">$(TargetFrameworks);net45;net46;net472</TargetFrameworks>
     <!-- Suppresses the warnings about the package not having assemblies in lib/*/.dll.-->
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <!-- Change the default location where NuGet will put the build output -->
@@ -17,14 +17,29 @@
     <Content Include="buildMultiTargeting\$(MSBuildProjectName).props" PackagePath="buildMultiTargeting\" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.3' or '$(TargetFramework)'=='net46'">
-    <PackageReference Include="Microsoft.Build.Framework" Version="[15.0,15.7)" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.0,15.7)" />
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard1.3'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[15.1.548,15.7)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.1.548,15.7)" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="Microsoft.Build.Framework" Version="[15.7,16.4.0]" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.7,16.4.0]" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="[15.7.179,16.4.0]" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.7.179,16.4.0]" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[14.3.0,15.0)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[14.3.0,15.0)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net46'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[15.1.548,16.0)" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[15.1.548,16.0)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
+    <PackageReference Include="Microsoft.Build.Framework" Version="[16.0.461,16.4.0]" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="[16.0.461,16.4.0]" />
   </ItemGroup>
 
   <ItemGroup>
