@@ -1,4 +1,4 @@
-﻿namespace THNETII.NuGet.Logging
+namespace THNETII.NuGet.Logging
 {
     using MicrosoftLogLevel = Microsoft.Extensions.Logging.LogLevel;
     using NuGetLogLevel = global::NuGet.Common.LogLevel;
