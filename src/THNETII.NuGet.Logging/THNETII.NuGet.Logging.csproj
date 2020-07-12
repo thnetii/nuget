@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <LangVersion>7.1</LangVersion>
     <Product>TH-NETII NuGet to Microsoft.Extension.Logging logger bridge</Product>
     <Description>Implements a Microsoft.Extensions.ILogger that can be used with the NuGet.Common.ILogger interface.</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
