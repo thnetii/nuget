@@ -13,7 +13,7 @@
     <PackageReference Include="NuGet.Frameworks" Version="5.10.0" />
     <PackageReference Include="NuGet.Packaging" Version="5.10.0" />
     <PackageReference Include="NuGet.Packaging.Core" Version="5.10.0" />
-    <PackageReference Include="NuGet.Protocol" Version="5.10.0" />
+    <PackageReference Include="NuGet.Protocol" Version="5.11.5" />
     <PackageReference Include="NuGet.Resolver" Version="5.10.0" />
     <PackageReference Include="NuGet.Versioning" Version="5.10.0" />
     <PackageReference Include="System.CommandLine.Hosting" Version="0.3.0-alpha.19405.1" />
